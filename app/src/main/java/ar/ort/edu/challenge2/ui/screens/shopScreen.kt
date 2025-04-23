@@ -6,12 +6,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.ort.edu.challenge2.R
+import ar.ort.edu.challenge2.ui.components.AddedToFavouritesDialog
 import ar.ort.edu.challenge2.ui.components.CustomCard
+import ar.ort.edu.challenge2.ui.orderList.OrderListDialog
 
 @Composable
 fun ProductListScreen(navController: NavController) {
@@ -23,6 +27,7 @@ fun ProductListScreen(navController: NavController) {
         Triple("Title 4", "Subtitle 4", "Description 4"),
         Triple("Title 5", "Subtitle 5", "Description 5")
     )
+    val showFavouriteDialog = remember { mutableStateOf(false) }
 
     // Screen content
     LazyColumn(
@@ -32,18 +37,22 @@ fun ProductListScreen(navController: NavController) {
         verticalArrangement = Arrangement.spacedBy(16.dp) // Space between cards
     ) {
         items(products) { (title, subtitle, description) ->
+
             CustomCard(
                 title = title,
                 subtitle = subtitle,
                 description = description,
                 imageRes = R.drawable.leather_boots, // Replace with your image
                 onAppButtonClick = { /* handle Buy */ },
-                onAppOutLinedButtonClick = { /* handle Add to fav */ }
+                onAppOutLinedButtonClick = { showFavouriteDialog.value = true }
             )
         }
+
     }
-}
-@Preview(showBackground = true)
-@Composable
-fun ProductListScreenPreview() {
+    if (showFavouriteDialog.value) {
+        AddedToFavouritesDialog(
+            onDismiss = { showFavouriteDialog.value = false }
+        )
+
+    }
 }

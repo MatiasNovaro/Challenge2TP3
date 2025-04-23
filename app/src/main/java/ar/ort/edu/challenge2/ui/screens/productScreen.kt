@@ -22,11 +22,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import ar.ort.edu.challenge2.R
 import ar.ort.edu.challenge2.ui.components.AppButton
 import ar.ort.edu.challenge2.ui.components.AppOutlinedButton
 import ar.ort.edu.challenge2.ui.components.OutlinedDropdownField
@@ -67,18 +69,18 @@ fun ProductScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(32.dp))
 
             Text(
-                text = "Count of product",
+                text = stringResource(R.string.count_of_product),
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
             )
             Spacer(modifier = Modifier.height(24.dp))
 
             OutlinedTextField(
-                value = "Input",
+                value = stringResource(R.string.input),
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Count") },
-                placeholder = { Text("Input") },
+                label = { Text(stringResource(R.string.count)) },
+                placeholder = { Text(stringResource(R.string.input)) },
                 modifier = Modifier.fillMaxWidth(0.9f)
             )
         }

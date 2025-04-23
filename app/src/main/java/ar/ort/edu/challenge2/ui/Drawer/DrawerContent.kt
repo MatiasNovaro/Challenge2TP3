@@ -23,11 +23,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import ar.ort.edu.challenge2.R
 import ar.ort.edu.challenge2.ui.Screen
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -39,10 +41,10 @@ fun DrawerContent(
     scope: CoroutineScope
 ) {
     val drawerItems = listOf(
-        DrawerItem("Shop list", Icons.Default.ShoppingCart, Screen.ShopScreen.route),
-        DrawerItem("Favourites", Icons.Default.Favorite, Screen.FavouritesScreen.route),
-        DrawerItem("Profile", Icons.Default.Person, Screen.ProfileScreen.route),
-        DrawerItem("Settings", Icons.Default.Settings, Screen.SettingsScreen.route)
+        DrawerItem(stringResource(R.string.shop_list), Icons.Default.ShoppingCart, Screen.ShopScreen.route),
+        DrawerItem(stringResource(R.string.favourites), Icons.Default.Favorite, Screen.FavouritesScreen.route),
+        DrawerItem(stringResource(R.string.profile1), Icons.Default.Person, Screen.ProfileScreen.route),
+        DrawerItem(stringResource(R.string.settings), Icons.Default.Settings, Screen.SettingsScreen.route)
     )
 
     val currentDestination = navController.currentBackStackEntryAsState().value?.destination
@@ -66,7 +68,7 @@ fun DrawerContent(
                 drawerState = drawerState,
                 scope = scope,
                 drawerItems = drawerItems,
-                sectionHeader = "Section Header",
+                sectionHeader = stringResource(R.string.section_header),
                 currentRoute = currentDestination?.route
             )
         }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,10 +20,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.zIndex
 import androidx.navigation.compose.rememberNavController
 import ar.ort.edu.challenge2.ui.Drawer.DrawerContent
 import ar.ort.edu.challenge2.ui.Screen
+import ar.ort.edu.challenge2.ui.components.ChatManagerDialog
 import ar.ort.edu.challenge2.ui.components.CustomBottomBar
 import ar.ort.edu.challenge2.ui.components.CustomTopBar
 import ar.ort.edu.challenge2.ui.orderList.OrderListDialog
@@ -37,6 +41,7 @@ class MainActivity : ComponentActivity() {
             Challenge2Theme {
                 val selectedItem = remember { mutableStateOf("Product") }
                 val showCartDialog = remember { mutableStateOf(false) }
+                val showChatManagerDialog = remember { mutableStateOf(false) }
                 val currentTitle = remember { mutableStateOf("Shop") }
                 val drawerState = rememberDrawerState(DrawerValue.Closed)
                 val scope = rememberCoroutineScope()
@@ -62,6 +67,8 @@ class MainActivity : ComponentActivity() {
                         },
                         bottomBar = {
                             CustomBottomBar(
+                                modifier = Modifier.background(color = Color.Transparent)
+                                ,
                                 selectedItem = selectedItem.value,
                                 onItemSelected = {
                                     selectedItem.value = it
@@ -69,7 +76,8 @@ class MainActivity : ComponentActivity() {
                                         "Product" -> navController.navigate(Screen.ShopScreen.route)
                                         "Cart" -> showCartDialog.value = true
                                         "Search" -> navController.navigate(Screen.FavouritesScreen.route)
-                                        "Profile" -> navController.navigate(Screen.SettingsScreen.route)
+                                        "Profile" -> navController.navigate(Screen.ProfileScreen.route)
+                                        "Store" ->  showChatManagerDialog.value = true
                                     }
                                 }
                             )
@@ -93,6 +101,11 @@ class MainActivity : ComponentActivity() {
                         OrderListDialog(
                             onDismiss = { showCartDialog.value = false },
                             onBuyClick = {}
+                        )
+                    }
+                    if (showChatManagerDialog.value) {
+                        ChatManagerDialog(
+                            onDismiss = { showChatManagerDialog.value = false },
                         )
                     }
                 }

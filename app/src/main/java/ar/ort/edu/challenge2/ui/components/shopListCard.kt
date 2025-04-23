@@ -26,6 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import ar.ort.edu.challenge2.R
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.ui.res.stringResource
 
 @Composable
 fun CustomCard(
@@ -91,8 +92,8 @@ fun CustomCard(
                 horizontalArrangement = Arrangement.End
             ) {
                 AppOutlinedButton(
-                    text = "Add to favourite",
-                    onClick = {},
+                    text = stringResource(R.string.add_to_favourite),
+                    onClick = onAppOutLinedButtonClick,
                     modifier = Modifier
                         .width(150.dp)
                         .height(40.dp)
@@ -100,8 +101,8 @@ fun CustomCard(
                 )
                 Spacer(modifier = Modifier.width(12.dp))
                 AppButton(
-                    text = "Buy",
-                    onClick = {},
+                    text = stringResource(R.string.buy),
+                    onClick = onAppButtonClick,
                     modifier = Modifier
                         .width(72.dp)
                         .height(40.dp)

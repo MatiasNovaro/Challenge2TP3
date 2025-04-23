@@ -18,7 +18,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import ar.ort.edu.challenge2.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,7 +40,7 @@ fun CustomTopBar(
             IconButton(onClick = onMenuClick) {
                 Icon(
                     imageVector = Icons.Default.Menu,
-                    contentDescription = "Menu"
+                    contentDescription = stringResource(R.string.menu)
                 )
             }
         },
@@ -46,7 +48,7 @@ fun CustomTopBar(
             IconButton(onClick = onProfileClick) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
-                    contentDescription = "Profile"
+                    contentDescription = stringResource(R.string.profile)
                 )
             }
         }

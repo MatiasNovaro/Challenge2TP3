@@ -1,8 +1,10 @@
 package ar.ort.edu.challenge2.ui.components
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -17,6 +19,7 @@ import androidx.compose.material3.FloatingActionButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -51,6 +54,7 @@ fun CustomBottomBar(
             .fillMaxWidth()
             .height(135.dp)
             .navigationBarsPadding()
+            .background(Color.Transparent)
     ) {
         // Background image
         Image(
@@ -59,7 +63,8 @@ fun CustomBottomBar(
             modifier = Modifier
                 .fillMaxSize()
                 .width(428.dp)
-                .align(Alignment.BottomCenter),
+                .align(Alignment.BottomCenter)
+                .background(color = Color.Transparent),
             contentScale = ContentScale.FillBounds
         )
 
@@ -70,6 +75,8 @@ fun CustomBottomBar(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
+                .background(color = Color.Transparent),
+            windowInsets = WindowInsets(0)
         ) {
             navItems.take(2).forEachIndexed { index, item ->
                 NavigationBarItem(
@@ -81,6 +88,9 @@ fun CustomBottomBar(
                             contentDescription = item
                         )
                     },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Color.Transparent // <- prevents selection background
+                    ),
                     label = { Text(text = item, fontSize = 12.sp) },
                     alwaysShowLabel = true
                 )
@@ -98,6 +108,9 @@ fun CustomBottomBar(
                             contentDescription = item
                         )
                     },
+                    colors = NavigationBarItemDefaults.colors(
+                        indicatorColor = Color.Transparent // <- prevents selection background
+                    ),
                     label = { Text(text = item, fontSize = 12.sp) },
                     alwaysShowLabel = true
                 )
@@ -108,12 +121,12 @@ fun CustomBottomBar(
         FloatingActionButton(
             onClick = { onItemSelected("Store") },
             shape = CircleShape,
-            containerColor = Color(0xFF6C3EFF),
+            containerColor = Color(0xFF9A4521),
             elevation = FloatingActionButtonDefaults.elevation(8.dp),
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .offset(y = (-15).dp)
-                .size(64.dp)
+                .size(64.dp),
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.ic_storefront),
@@ -126,7 +139,8 @@ fun CustomBottomBar(
 
 
 
-@Preview(showBackground = true)
+
+@Preview(showBackground = false)
 @Composable
 fun BottomManuPreview() {
     val selectedItem = remember { mutableStateOf("Product") }

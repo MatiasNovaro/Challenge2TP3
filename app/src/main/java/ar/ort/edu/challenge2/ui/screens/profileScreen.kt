@@ -22,6 +22,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -41,7 +42,9 @@ fun ProfileScreen(navController: NavController){
     ) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.align(Alignment.TopCenter).verticalScroll(rememberScrollState())
+            modifier = Modifier
+                .align(Alignment.TopCenter)
+                .verticalScroll(rememberScrollState())
 
         ) {
             ProfileCard(
@@ -53,13 +56,13 @@ fun ProfileScreen(navController: NavController){
                 value = "xxx@gmail.com",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("E-Mail Address") },
-                placeholder = { Text("xxx@gmail.com") },
+                label = { Text(stringResource(R.string.e_mail_address)) },
+                placeholder = { Text(stringResource(R.string.xxx_gmail_com)) },
                 modifier = Modifier.fillMaxWidth(0.9f),
                 trailingIcon = {
                     Icon(
                         imageVector = Icons.Default.Email, // Use your desired icon
-                        contentDescription = "Email Icon"
+                        contentDescription = stringResource(R.string.email_icon)
                     )
                 }
             )
@@ -68,7 +71,7 @@ fun ProfileScreen(navController: NavController){
                 value = "+5493123135",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Phone Number") },
+                label = { Text(stringResource(R.string.phone_number)) },
                 placeholder = { Text("+5493123135") },
                 modifier = Modifier.fillMaxWidth(0.9f),
                 trailingIcon = {
@@ -83,7 +86,7 @@ fun ProfileScreen(navController: NavController){
                 value = "www.google.com",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Web Site") },
+                label = { Text(stringResource(R.string.web_site)) },
                 placeholder = { Text("www.google.com") },
                 modifier = Modifier.fillMaxWidth(0.9f),
                 trailingIcon = {
@@ -98,7 +101,7 @@ fun ProfileScreen(navController: NavController){
                 value = "xxxxxxxxxxxxxxx",
                 onValueChange = {},
                 readOnly = true,
-                label = { Text("Password") },
+                label = { Text(stringResource(R.string.password)) },
                 placeholder = { Text("xxxxxxxxxxxxxxx") },
                 modifier = Modifier.fillMaxWidth(0.9f),
                 trailingIcon = {
