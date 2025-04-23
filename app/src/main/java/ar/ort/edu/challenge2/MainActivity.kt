@@ -75,7 +75,7 @@ class MainActivity : ComponentActivity() {
                                     when (it) {
                                         "Product" -> navController.navigate(Screen.ShopScreen.route)
                                         "Cart" -> showCartDialog.value = true
-                                        "Search" -> navController.navigate(Screen.FavouritesScreen.route)
+                                        "Search" -> navController.navigate(Screen.ProductScreen.route)
                                         "Profile" -> navController.navigate(Screen.ProfileScreen.route)
                                         "Store" ->  showChatManagerDialog.value = true
                                     }

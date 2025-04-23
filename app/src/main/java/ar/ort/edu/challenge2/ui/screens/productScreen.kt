@@ -52,7 +52,7 @@ fun ProductScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(40.dp))
 
             Text(
-                text = "Select Size",
+                text = stringResource(R.string.select_size),
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
             )
