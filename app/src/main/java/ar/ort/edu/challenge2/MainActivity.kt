@@ -67,8 +67,7 @@ class MainActivity : ComponentActivity() {
                         },
                         bottomBar = {
                             CustomBottomBar(
-                                modifier = Modifier.background(color = Color.Transparent)
-                                ,
+                                modifier = Modifier.background(color = Color.Transparent),
                                 selectedItem = selectedItem.value,
                                 onItemSelected = {
                                     selectedItem.value = it

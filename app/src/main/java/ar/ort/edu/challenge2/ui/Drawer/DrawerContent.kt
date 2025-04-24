@@ -98,13 +98,7 @@ fun DrawerItemSection(
                 icon = { Icon(item.icon, contentDescription = null) },
                 selected = isSelected,
                 onClick = {
-                    navController.navigate(item.route) {
-                        popUpTo(navController.graph.startDestinationId) {
-                            saveState = true
-                        }
-                        launchSingleTop = true
-                        restoreState = true
-                    }
+                    navController.navigate(item.route)
                     scope.launch { drawerState.close() }
                 },
                 modifier = Modifier

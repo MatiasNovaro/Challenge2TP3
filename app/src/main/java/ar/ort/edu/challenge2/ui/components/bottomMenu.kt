@@ -68,7 +68,6 @@ fun CustomBottomBar(
             contentScale = ContentScale.FillBounds
         )
 
-        // Bottom Navigation
         NavigationBar(
             containerColor = Color.Transparent,
             tonalElevation = 0.dp,
@@ -117,7 +116,6 @@ fun CustomBottomBar(
             }
         }
 
-        // Floating Action Button
         FloatingActionButton(
             onClick = { onItemSelected("Store") },
             shape = CircleShape,

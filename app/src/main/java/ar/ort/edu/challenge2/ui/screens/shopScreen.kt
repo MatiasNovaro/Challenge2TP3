@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import ar.ort.edu.challenge2.R
+import ar.ort.edu.challenge2.ui.Screen
 import ar.ort.edu.challenge2.ui.components.AddedToFavouritesDialog
 import ar.ort.edu.challenge2.ui.components.CustomCard
 import ar.ort.edu.challenge2.ui.orderList.OrderListDialog
@@ -43,7 +44,7 @@ fun ProductListScreen(navController: NavController) {
                 subtitle = subtitle,
                 description = description,
                 imageRes = R.drawable.leather_boots, // Replace with your image
-                onAppButtonClick = { /* handle Buy */ },
+                onAppButtonClick = { navController.navigate(Screen.ProductScreen.route) },
                 onAppOutLinedButtonClick = { showFavouriteDialog.value = true }
             )
         }

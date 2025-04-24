@@ -10,8 +10,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 data class DrawerItem(val label: String, val icon: ImageVector, val route: String)
 
 val drawerItems = listOf(
-    DrawerItem("Home", Icons.Default.ShoppingCart, "shop_list"),
-    DrawerItem("Profile", Icons.Default.Favorite, "favourites"),
-    DrawerItem("Settings", Icons.Default.Person, "profile"),
-    DrawerItem("Logout", Icons.Default.Settings, "settings")
+    DrawerItem("Shop", Icons.Default.ShoppingCart, "shop_list"),
+    DrawerItem("Favourites", Icons.Default.Favorite, "favourites"),
+    DrawerItem("Profile", Icons.Default.Person, "profile"),
+    DrawerItem("Settings", Icons.Default.Settings, "settings")
 )

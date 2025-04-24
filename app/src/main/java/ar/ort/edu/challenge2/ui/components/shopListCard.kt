@@ -81,7 +81,8 @@ fun CustomCard(
             Text(
                 text = description,
                 fontSize = 14.sp,
-                modifier = Modifier.padding(horizontal = 16.dp)
+                modifier = Modifier.padding(horizontal = 16.dp),
+
             )
 
             Spacer(modifier = Modifier.height(24.dp))

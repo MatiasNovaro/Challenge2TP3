@@ -24,6 +24,7 @@ fun Navigation(navController: NavHostController, onDestinationChanged: (String) 
                 Screen.ProductScreen.route -> onDestinationChanged("Product")
                 Screen.FavouritesScreen.route -> onDestinationChanged("Favourites")
                 Screen.SettingsScreen.route -> onDestinationChanged("Settings")
+                Screen.ProfileScreen.route->  onDestinationChanged("Profile")
             }
         }
     }

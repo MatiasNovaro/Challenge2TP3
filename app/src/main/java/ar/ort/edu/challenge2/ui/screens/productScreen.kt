@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import ar.ort.edu.challenge2.R
+import ar.ort.edu.challenge2.ui.Screen
 import ar.ort.edu.challenge2.ui.components.AppButton
 import ar.ort.edu.challenge2.ui.components.AppOutlinedButton
 import ar.ort.edu.challenge2.ui.components.OutlinedDropdownField
@@ -55,6 +56,7 @@ fun ProductScreen(navController: NavController) {
                 text = stringResource(R.string.select_size),
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
+                color = Color.Gray
             )
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -72,6 +74,7 @@ fun ProductScreen(navController: NavController) {
                 text = stringResource(R.string.count_of_product),
                 fontWeight = FontWeight.Bold,
                 fontSize = 24.sp,
+                color = Color.Gray
             )
             Spacer(modifier = Modifier.height(24.dp))
 
@@ -95,10 +98,12 @@ fun ProductScreen(navController: NavController) {
         ) {
             AppOutlinedButton(
                 text = "Back",
-                onClick = {},
+                onClick = {navController.navigate(Screen.ShopScreen.route)},
                 modifier = Modifier
                     .width(100.dp)
                     .height(40.dp)
+
+
             )
             AppButton(
                 text = "Buy",
