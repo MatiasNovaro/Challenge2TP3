@@ -58,6 +58,7 @@ class MainActivity : ComponentActivity() {
                     }
                 ) {
                     Scaffold(
+                        modifier = Modifier.background(Color.Blue),
                         topBar = {
                             CustomTopBar(
                                 title = currentTitle.value,
@@ -67,7 +68,7 @@ class MainActivity : ComponentActivity() {
                         },
                         bottomBar = {
                             CustomBottomBar(
-                                modifier = Modifier.background(color = Color.Transparent),
+                                modifier = Modifier.background(color = Color.Blue),
                                 selectedItem = selectedItem.value,
                                 onItemSelected = {
                                     selectedItem.value = it

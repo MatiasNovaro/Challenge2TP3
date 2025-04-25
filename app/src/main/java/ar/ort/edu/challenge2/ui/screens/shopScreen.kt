@@ -20,7 +20,6 @@ import ar.ort.edu.challenge2.ui.orderList.OrderListDialog
 
 @Composable
 fun ProductListScreen(navController: NavController) {
-    // Example dummy data
     val products = listOf(
         Triple("Title 1", "Subtitle 1", "Description 1"),
         Triple("Title 2", "Subtitle 2", "Description 2"),
@@ -34,8 +33,8 @@ fun ProductListScreen(navController: NavController) {
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp), // Optional padding
-        verticalArrangement = Arrangement.spacedBy(16.dp) // Space between cards
+            .padding(16.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(products) { (title, subtitle, description) ->
 
@@ -43,7 +42,7 @@ fun ProductListScreen(navController: NavController) {
                 title = title,
                 subtitle = subtitle,
                 description = description,
-                imageRes = R.drawable.leather_boots, // Replace with your image
+                imageRes = R.drawable.leather_boots,
                 onAppButtonClick = { navController.navigate(Screen.ProductScreen.route) },
                 onAppOutLinedButtonClick = { showFavouriteDialog.value = true }
             )

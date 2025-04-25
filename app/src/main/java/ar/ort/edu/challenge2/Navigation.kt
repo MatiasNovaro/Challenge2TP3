@@ -1,7 +1,10 @@
 package ar.ort.edu.challenge2
 
+import androidx.compose.foundation.background
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
@@ -28,7 +31,8 @@ fun Navigation(navController: NavHostController, onDestinationChanged: (String) 
             }
         }
     }
-    NavHost(navController = navController, startDestination = Screen.ShopScreen.route){
+    NavHost(navController = navController, startDestination = Screen.ShopScreen.route, modifier = Modifier.background(
+        Color.Red)){
         composable(route=Screen.ShopScreen.route){
             ProductListScreen(navController= navController )
         }

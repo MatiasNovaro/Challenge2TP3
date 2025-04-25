@@ -132,7 +132,7 @@ fun OrderListItem(index: Int, item: OrderItem) {
         Text(item.name, modifier = Modifier.weight(1f))
         Checkbox(
             checked = checked,
-            onCheckedChange = { checked = it }, // read-only
+            onCheckedChange = { checked = it },
             colors = CheckboxDefaults.colors(checkedColor = Color(0xFF944323))
         )
     }

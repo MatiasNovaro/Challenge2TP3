@@ -95,7 +95,7 @@ fun CustomBottomBar(
                 )
             }
 
-            Spacer(modifier = Modifier.width(64.dp)) // Space for FAB
+            Spacer(modifier = Modifier.width(64.dp))
 
             navItems.drop(2).forEachIndexed { index, item ->
                 NavigationBarItem(
